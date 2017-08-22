@@ -1,43 +1,11 @@
 {
-  "name": "react-toolbox-example",
-  "description": "A set of complementary tools to ReactJS.",
-  "version": "0.12.0",
+  "name": "react-ma",
+  "description": "An updated frontend for HouseCanary's Match & Append product",
+  "version": "0.0.1",
   "author": {
-    "name": "React Toolbox Team",
-    "url": "http://github.com/react-toolbox"
+    "name": "HouseCanary team",
+    "url": "http://www.housecanary.com"
   },
-  "contributors": [
-    {
-      "name": "Javi Jimenez Villar",
-      "email": "javi.jimenez.villar@gmail.com",
-      "url": "http://soyjavi.com/"
-    },
-    {
-      "name": "Javi Velasco Arjona",
-      "email": "javier.velasco86@gmail.com",
-      "url": "http://javivelasco.com/"
-    },
-    {
-      "name": "Oleg Stepura",
-      "email": "oleg[at]stepura.com",
-      "url": "http://oleg.stepura.com/"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/react-toolbox/react-toolbox-example.git"
-  },
-  "bugs": {
-    "url": "https://github.com/react-toolbox/react-toolbox/issues",
-    "email": "issues@react-toolbox.com"
-  },
-  "keywords": [
-    "components",
-    "material design",
-    "react",
-    "react-component",
-    "toolbox"
-  ],
   "engines": {
     "node": ">=4.3.0",
     "npm": ">=4.0.1"
@@ -81,5 +49,5 @@
     "deploy": "gh-pages -d build"
   },
   "license": "MIT",
-  "homepage": "https://github.com/react-toolbox/react-toolbox-example#readme"
+  "homepage": "https://platform.housecanary.com"
 }

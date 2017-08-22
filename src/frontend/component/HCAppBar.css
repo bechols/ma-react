@@ -1,5 +1,5 @@
 .appBar {
-  background-color: #800080;
+  background: linear-gradient(90deg, #31A5C0, #005585);
 }
 .appBar svg {
   width: 3.4rem;
