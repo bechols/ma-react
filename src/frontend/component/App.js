@@ -3,11 +3,11 @@ import HCAppBar from './HCAppBar.js';      // AppBar with simple overrides
 import SuccessButton from './SuccessButton.js';    // A button with complex overrides
 import { Button } from 'react-toolbox/lib/button'; // Bundled component import
 
-const App = () => (
+const App = (props) => (
   <div>
     <HCAppBar />
     <section style={{ padding: 20 }}>
-      <SuccessButton label='Success' primary raised />
+      <Button label='Success' primary raised onClick={()=>this.props.onTemplateClick}/>
       <Button label='Primary Button' primary />
     </section>
   </div>
