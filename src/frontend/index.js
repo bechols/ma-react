@@ -1,59 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './component/App';
+import App from './containers/App';
 import { AppContainer } from 'react-hot-loader';
 import { overrideComponentTypeChecker } from 'react-toolbox';
+import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import matchAndAppendApp from './redux/reducers';
+import matchAndAppendApp from './reducers/reducers';
 import {
-  selectTemplate,
-  selectEndpoint,
-  toggleEndpointListVisibility
-} from './redux/actions';
-import { connect } from 'react-redux';
-
-const store = createStore(matchAndAppendApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
+  getAvailableEndpoints,
+  getAvailableTemplates
+} from './actions/actions';
 
 const rootEl = document.getElementById('app');
 
-// Every time the state changes, log it
-// Note that subscribe() returns a function for unregistering the listener
-const unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-);
-
-
-const getTemplate = (template) => {
-  return 'HERE IS THE TEMPLATE: ' + template;
-};
-
-const mapStateToProps = state => {
-  return {
-    template: getTemplate(state.template)
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onTemplateClick: template => {
-      dispatch(selectTemplate(template));
-    }
-  };
-};
-
-const ReduxContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-  )(App);
+const store = createStore(matchAndAppendApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+store.dispatch(getAvailableEndpoints());
+store.dispatch(getAvailableTemplates());
+console.log('Initialized: ', store.getState());
 
 const render = () => {
   ReactDOM.render(
-    <AppContainer>
-      <ReduxContainer store={store}>
-        <App onTemplateClick={this.onTemplateClick}/>
-      </ReduxContainer>
-    </AppContainer>,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     rootEl
   );
 };
@@ -66,7 +35,7 @@ if (process.env.NODE_ENV !== 'production') {
     )
   ));
   if (module.hot) {
-    module.hot.accept('./component/App', render);
+    module.hot.accept('./containers/App', render);
   }
 }
 
