@@ -10,7 +10,8 @@ import Templates from './Templates';
 const mapStateToProps = state => {
   return {
     availableTemplates: state.availableTemplates,
-    selectedTemplate: state.selectedTemplate
+    selectedTemplate: state.selectedTemplate,
+    selectedEndpoints: state.selectedEndpoints
   };
 };
 

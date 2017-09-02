@@ -1,6 +1,6 @@
 import React from 'react';
 import HCAppBar from '../components/HCAppBar.js';      // AppBar with simple overrides
-import EndpointList from '../components/EndpointList';
+import EndpointContainer from '../components/EndpointContainer';
 import TemplateContainer from '../components/TemplateContainer';
 
 const App = (props) => (
@@ -8,7 +8,7 @@ const App = (props) => (
     <HCAppBar />
     <section className='Body' style={{ maxWidth: 1000, margin: 'auto' }}>
       <TemplateContainer />
-      <EndpointList />
+      <EndpointContainer />
     </section>
   </div>
 );

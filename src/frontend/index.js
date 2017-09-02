@@ -13,10 +13,10 @@ import {
 
 const rootEl = document.getElementById('app');
 
+// Initialize app state
 const store = createStore(matchAndAppendApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 store.dispatch(getAvailableEndpoints());
 store.dispatch(getAvailableTemplates());
-console.log('Initialized: ', store.getState());
 
 const render = () => {
   ReactDOM.render(
