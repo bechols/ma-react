@@ -6,28 +6,37 @@ import { TableRow } from 'react-toolbox/lib/table';
 import { TableCell } from 'react-toolbox/lib/table';
 import PropTypes from 'prop-types';
 
-const EndpointList = ({ availableEndpoints, selectedEndpoints, onEndpointClick }) => (
-  <Table multiSelectable onRowSelect={onEndpointClick}>
-    <TableHead>
-      <TableCell>Endpoint</TableCell>
-      <TableCell>Description</TableCell>
-    </TableHead>
-    {availableEndpoints.map((endpoint, idx) => (
-      <TableRow
-        key={availableEndpoints[idx].id}
-        value={availableEndpoints[idx].id}
-        selected={selectedEndpoints.includes(endpoint.id)}
-      >
-        <TableCell>{endpoint.name}</TableCell>
-        <TableCell>{endpoint.description}</TableCell>
-      </TableRow>
-    ))}
-  </Table>
-);
+class EndpointList extends React.Component {
+  render () {
+    if (this.props.endpointListVisibility) {
+      return (
+        <Table multiSelectable onRowSelect={this.props.onEndpointClick}>
+          <TableHead>
+            <TableCell>Endpoint</TableCell>
+            <TableCell>Description</TableCell>
+          </TableHead>
+          {this.props.availableEndpoints.map((endpoint, idx) => (
+            <TableRow
+              key={this.props.availableEndpoints[idx].id}
+              value={this.props.availableEndpoints[idx].id}
+              selected={this.props.selectedEndpoints.includes(endpoint.id)}
+            >
+              <TableCell>{endpoint.name}</TableCell>
+              <TableCell>{endpoint.description}</TableCell>
+            </TableRow>
+          ))}
+        </Table>
+      );
+    } else {
+      return (null);
+    }
+  }
+}
 
 EndpointList.PropTypes = {
   availableEndpoints: PropTypes.array.isRequired,
   selectedEndpoints: PropTypes.array.isRequired,
+  endpointListVisibility: PropTypes.bool.isRequired,
   onEndpointClick: PropTypes.func.isRequired
 };
 

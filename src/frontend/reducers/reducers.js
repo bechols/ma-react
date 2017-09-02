@@ -3,7 +3,6 @@ import {
   GET_AVAILABLE_ENDPOINTS,
   GET_AVAILABLE_TEMPLATES,
   TOGGLE_TEMPLATE,
-  TOGGLE_ENDPOINT,
   UPDATE_ENDPOINTS,
   TOGGLE_ENDPOINT_LIST_VISIBILITY
   //TOGGLE_OPTIONAL_INPUT_COLUMN,
@@ -107,30 +106,6 @@ function selectedEndpoints (state = [], action) {
       return state;
   }
 }
-/*
-// OLD: works when passed individual endpoint ID, but that's not how the React Toolbox Table component works
-function selectedEndpoints (state = [], action) {
-  switch (action.type) {
-    case TOGGLE_ENDPOINT:
-      console.log('Here is state ', state);
-      console.log('Here is action ', action);
-      if (state.length !== 0) {
-        if (state.includes(action.endpointId)) {
-          console.log('Should remove clicked endpoint');
-          return state.filter(endpoint => endpoint !== action.endpointId);
-        } else {
-          console.log('Should append new endpoint');
-          return [ ...state, action.endpointId ];
-        }
-      } else {
-        console.log('Should add endpoint to the empty array');
-        return [ ...state, action.endpointId ];
-      }
-      default:
-        return state;
-  }
-}
-*/
 
 const matchAndAppendApp = combineReducers({
   availableEndpoints,

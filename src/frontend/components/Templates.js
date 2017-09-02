@@ -20,7 +20,7 @@ const Templates = ({ availableTemplates, selectedTemplate, selectedEndpoints, on
         />
       ))}
     </div>
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <div className={theme.ButtonDiv}>
       <Button onClick={onToggleListVisibility}>Customize</Button>
       {selectedEndpoints.length !== 0
         && <Button onClick={null}>Clear All</Button>

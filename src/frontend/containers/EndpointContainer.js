@@ -6,7 +6,8 @@ import EndpointList from '../components/EndpointList';
 const mapStateToProps = state => {
   return {
     availableEndpoints: state.availableEndpoints,
-    selectedEndpoints: state.selectedEndpoints
+    selectedEndpoints: state.selectedEndpoints,
+    endpointListVisibility: state.endpointListVisibility
   };
 };
 

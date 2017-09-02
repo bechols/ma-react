@@ -3,7 +3,6 @@ export const GET_AVAILABLE_TEMPLATES = 'GET_AVAILABLE_TEMPLATES';
 export const GET_PREVIOUS_JOB = 'GET_PREVIOUS_JOB';
 export const GET_REQUIRED_INPUT_COLUMN = 'GET_REQUIRED_INPUT_COLUMN';
 export const TOGGLE_TEMPLATE = 'TOGGLE_TEMPLATE';
-export const TOGGLE_ENDPOINT = 'TOGGLE_ENDPOINT';
 export const UPDATE_ENDPOINTS = 'UPDATE_ENDPOINTS';
 export const TOGGLE_ENDPOINT_LIST_VISIBILITY = 'TOGGLE_ENDPOINT_LIST_VISIBILITY';
 export const TOGGLE_OPTIONAL_INPUT_COLUMNS = 'TOGGLE_OPTIONAL_INPUT_COLUMNS';
@@ -17,9 +16,6 @@ export function getAvailableTemplates () {
 }
 export function toggleTemplate (templateId, includedEndpoints, previousSelectedTemplate) {
   return { type: TOGGLE_TEMPLATE, templateId, includedEndpoints, previousSelectedTemplate };
-}
-export function toggleEndpoint (endpointId) {
-  return { type: TOGGLE_ENDPOINT, endpointId };
 }
 export function updateEndpoints (endpointsSelected) {
   return { type: UPDATE_ENDPOINTS, endpointsSelected}
