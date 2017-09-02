@@ -15,8 +15,8 @@ export function getAvailableEndpoints () {
 export function getAvailableTemplates () {
   return { type: GET_AVAILABLE_TEMPLATES };
 }
-export function toggleTemplate (templateId, includedEndpoints) {
-  return { type: TOGGLE_TEMPLATE, templateId, includedEndpoints };
+export function toggleTemplate (templateId, includedEndpoints, previousSelectedTemplate) {
+  return { type: TOGGLE_TEMPLATE, templateId, includedEndpoints, previousSelectedTemplate };
 }
 export function toggleEndpoint (endpointId) {
   return { type: TOGGLE_ENDPOINT, endpointId };

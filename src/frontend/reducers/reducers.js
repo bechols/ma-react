@@ -89,7 +89,20 @@ function selectedEndpoints (state = [], action) {
       console.log('Update endpoints');
       return action.endpointsSelected.sort();
     case TOGGLE_TEMPLATE:
-      return action.includedEndpoints.sort();
+      // if no previous selected template: new template selection
+      //   -add template endpoints to any already selected endpoints
+      // if previous selected template == templateId: deselected template
+      //   -filter template endpoints from any already selected endpoints
+      // if previous selected template != templateId: switched template
+      //   -wipe out any selected endpoints and replace with new template endpoints
+
+      if (action.previousSelectedTemplate === null) {
+        return state.concat(action.includedEndpoints).sort();
+      } else if (action.previousSelectedTemplate === action.templateId) {
+        return state.filter(endpoint => !action.includedEndpoints.includes(endpoint)).sort();
+      } else {
+        return action.includedEndpoints.sort();
+      }
     default:
       return state;
   }

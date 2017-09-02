@@ -15,6 +15,7 @@ const Templates = ({ availableTemplates, selectedTemplate, selectedEndpoints, on
           templateName={availableTemplates[idx].name}
           templateDescription={availableTemplates[idx].description}
           selected={availableTemplates[idx].id === selectedTemplate}
+          selectedTemplate={selectedTemplate}
           onTemplateClick={onTemplateClick}
         />
       ))}

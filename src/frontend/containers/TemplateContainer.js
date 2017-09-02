@@ -17,9 +17,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTemplateClick: (templateId, includedEndpoints) => {
+    onTemplateClick: (templateId, includedEndpoints, selectedTemplate) => {
       console.log(includedEndpoints);
-      dispatch(toggleTemplate(templateId, includedEndpoints));
+      dispatch(toggleTemplate(templateId, includedEndpoints, selectedTemplate));
     },
     onToggleListVisibility: () => {
       dispatch(toggleEndpointListVisibility());
