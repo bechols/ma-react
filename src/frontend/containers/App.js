@@ -1,7 +1,7 @@
 import React from 'react';
 import HCAppBar from '../components/HCAppBar.js';      // AppBar with simple overrides
-import EndpointContainer from '../components/EndpointContainer';
-import TemplateContainer from '../components/TemplateContainer';
+import EndpointContainer from './EndpointContainer';
+import TemplateContainer from './TemplateContainer';
 
 const App = (props) => (
   <div>

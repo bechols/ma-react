@@ -4,11 +4,11 @@ import { CardTitle } from 'react-toolbox/lib/card';
 import PropTypes from 'prop-types';
 import theme from './TemplateCard.css';
 
-const TemplateCard = ({ templateId, templateName, templateDescription, selected, onTemplateClick }) => (
+const TemplateCard = ({ templateId, includedEndpoints, templateName, templateDescription, selected, onTemplateClick }) => (
   <Card
     theme={theme}
     raised
-    onClick={()=>onTemplateClick(templateId)}
+    onClick={()=>onTemplateClick(templateId, includedEndpoints)}
     className={selected ? theme.selected : null}
   >
     <CardTitle
@@ -20,6 +20,7 @@ const TemplateCard = ({ templateId, templateName, templateDescription, selected,
 
 TemplateCard.PropTypes = {
   templateId: PropTypes.number.isRequired,
+  includedEndpoints: PropTypes.array.isRequired,
   templateName: PropTypes.string.isRequired,
   selected: PropTypes.bool.isRequired,
   onTemplateClick: PropTypes.func.isRequired

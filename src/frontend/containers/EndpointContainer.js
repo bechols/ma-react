@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleEndpoint } from '../actions/actions';
-import EndpointList from './EndpointList';
+import { updateEndpoints } from '../actions/actions';
+import EndpointList from '../components/EndpointList';
 
 const mapStateToProps = state => {
   return {
@@ -12,8 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onEndpointClick: (endpointId) => {
-      dispatch(toggleEndpoint(endpointId));
+    onEndpointClick: (endpointsSelected) => {
+      dispatch(updateEndpoints(endpointsSelected));
     }
   };
 };

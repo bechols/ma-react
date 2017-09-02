@@ -5,7 +5,7 @@ import {
   toggleTemplate,
   toggleEndpointListVisibility
 } from '../actions/actions';
-import Templates from './Templates';
+import Templates from '../components/Templates';
 
 const mapStateToProps = state => {
   return {
@@ -17,8 +17,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTemplateClick: templateId => {
-      dispatch(toggleTemplate(templateId));
+    onTemplateClick: (templateId, includedEndpoints) => {
+      console.log(includedEndpoints);
+      dispatch(toggleTemplate(templateId, includedEndpoints));
     },
     onToggleListVisibility: () => {
       dispatch(toggleEndpointListVisibility());

@@ -4,6 +4,7 @@ import {
   GET_AVAILABLE_TEMPLATES,
   TOGGLE_TEMPLATE,
   TOGGLE_ENDPOINT,
+  UPDATE_ENDPOINTS,
   TOGGLE_ENDPOINT_LIST_VISIBILITY
   //TOGGLE_OPTIONAL_INPUT_COLUMN,
   //UPLOAD_FILE
@@ -84,6 +85,19 @@ function selectedTemplate (state = null, action) {
 
 function selectedEndpoints (state = [], action) {
   switch (action.type) {
+    case UPDATE_ENDPOINTS:
+      console.log('Update endpoints');
+      return action.endpointsSelected.sort();
+    case TOGGLE_TEMPLATE:
+      return action.includedEndpoints.sort();
+    default:
+      return state;
+  }
+}
+/*
+// OLD: works when passed individual endpoint ID, but that's not how the React Toolbox Table component works
+function selectedEndpoints (state = [], action) {
+  switch (action.type) {
     case TOGGLE_ENDPOINT:
       console.log('Here is state ', state);
       console.log('Here is action ', action);
@@ -101,8 +115,9 @@ function selectedEndpoints (state = [], action) {
       }
       default:
         return state;
-    }
+  }
 }
+*/
 
 const matchAndAppendApp = combineReducers({
   availableEndpoints,

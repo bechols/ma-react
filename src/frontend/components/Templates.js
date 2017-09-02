@@ -11,6 +11,7 @@ const Templates = ({ availableTemplates, selectedTemplate, selectedEndpoints, on
         <TemplateCard
           key={availableTemplates[idx].id}
           templateId={availableTemplates[idx].id}
+          includedEndpoints={availableTemplates[idx].endpoints}
           templateName={availableTemplates[idx].name}
           templateDescription={availableTemplates[idx].description}
           selected={availableTemplates[idx].id === selectedTemplate}
@@ -20,7 +21,7 @@ const Templates = ({ availableTemplates, selectedTemplate, selectedEndpoints, on
     </div>
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       <Button onClick={onToggleListVisibility}>Customize</Button>
-      {selectedEndpoints
+      {selectedEndpoints.length !== 0
         && <Button onClick={null}>Clear All</Button>
       }
     </div>

@@ -7,7 +7,7 @@ import { TableCell } from 'react-toolbox/lib/table';
 import PropTypes from 'prop-types';
 
 const EndpointList = ({ availableEndpoints, selectedEndpoints, onEndpointClick }) => (
-  <Table multiSelectable>
+  <Table multiSelectable onRowSelect={onEndpointClick}>
     <TableHead>
       <TableCell>Endpoint</TableCell>
       <TableCell>Description</TableCell>
@@ -15,8 +15,8 @@ const EndpointList = ({ availableEndpoints, selectedEndpoints, onEndpointClick }
     {availableEndpoints.map((endpoint, idx) => (
       <TableRow
         key={availableEndpoints[idx].id}
+        value={availableEndpoints[idx].id}
         selected={selectedEndpoints.includes(endpoint.id)}
-        onClick={()=>onEndpointClick(availableEndpoints[idx].id)}
       >
         <TableCell>{endpoint.name}</TableCell>
         <TableCell>{endpoint.description}</TableCell>
