@@ -4,6 +4,7 @@ import {
   GET_AVAILABLE_TEMPLATES,
   TOGGLE_TEMPLATE,
   UPDATE_ENDPOINTS,
+  CLEAR_SELECTED_ENDPOINTS,
   TOGGLE_ENDPOINT_LIST_VISIBILITY
   //TOGGLE_OPTIONAL_INPUT_COLUMN,
   //UPLOAD_FILE
@@ -77,6 +78,8 @@ function selectedTemplate (state = null, action) {
       } else {
         return action.templateId;
       }
+    case CLEAR_SELECTED_ENDPOINTS:
+      return null;
     default:
       return state;
   }
@@ -102,6 +105,8 @@ function selectedEndpoints (state = [], action) {
       } else {
         return action.includedEndpoints.sort();
       }
+    case CLEAR_SELECTED_ENDPOINTS:
+      return [];
     default:
       return state;
   }

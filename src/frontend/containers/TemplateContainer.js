@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
   getAvailableTemplates,
   toggleTemplate,
-  toggleEndpointListVisibility
+  toggleEndpointListVisibility,
+  clearSelectedEndpoints
 } from '../actions/actions';
 import Templates from '../components/Templates';
 
@@ -22,6 +23,9 @@ const mapDispatchToProps = dispatch => {
     },
     onToggleListVisibility: () => {
       dispatch(toggleEndpointListVisibility());
+    },
+    onClearAll: () => {
+      dispatch(clearSelectedEndpoints());
     }
   };
 };

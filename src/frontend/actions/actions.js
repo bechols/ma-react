@@ -4,6 +4,7 @@ export const GET_PREVIOUS_JOB = 'GET_PREVIOUS_JOB';
 export const GET_REQUIRED_INPUT_COLUMN = 'GET_REQUIRED_INPUT_COLUMN';
 export const TOGGLE_TEMPLATE = 'TOGGLE_TEMPLATE';
 export const UPDATE_ENDPOINTS = 'UPDATE_ENDPOINTS';
+export const CLEAR_SELECTED_ENDPOINTS = 'CLEAR_SELECTED_ENDPOINTS';
 export const TOGGLE_ENDPOINT_LIST_VISIBILITY = 'TOGGLE_ENDPOINT_LIST_VISIBILITY';
 export const TOGGLE_OPTIONAL_INPUT_COLUMNS = 'TOGGLE_OPTIONAL_INPUT_COLUMNS';
 export const UPLOAD_FILE = 'UPLOAD_FILE';
@@ -22,6 +23,9 @@ export function updateEndpoints (endpointsSelected) {
 }
 export function toggleEndpointListVisibility () {
   return { type: TOGGLE_ENDPOINT_LIST_VISIBILITY };
+}
+export function clearSelectedEndpoints () {
+  return { type: CLEAR_SELECTED_ENDPOINTS };
 }
 export function toggleOptionalInputColumns (endpoint) {
   return { type: TOGGLE_OPTIONAL_INPUT_COLUMNS, endpoint };
