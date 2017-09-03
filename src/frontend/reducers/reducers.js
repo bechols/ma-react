@@ -5,21 +5,37 @@ import {
   TOGGLE_TEMPLATE,
   UPDATE_ENDPOINTS,
   CLEAR_SELECTED_ENDPOINTS,
-  TOGGLE_ENDPOINT_LIST_VISIBILITY
-  //TOGGLE_OPTIONAL_INPUT_COLUMN,
-  //UPLOAD_FILE
+  TOGGLE_ENDPOINT_LIST_VISIBILITY,
+  UPLOAD_FILE
 } from '../actions/actions';
 
-function Endpoint (id, name, description) {
+function Endpoint (id, name = '', description = '', optionalColumns = []) {
   this.id = id;
   this.name = name;
   this.description = description;
+  this.optionalColumns = optionalColumns;
 }
 
 const propertyDetails = new Endpoint(0, 'property/details', 'Assessment info');
-const propertyValue = new Endpoint(1, 'property/value', 'HouseCanary AVM');
+const propertyValue = new Endpoint(1, 'property/value', 'HouseCanary AVM',
+  [{
+    colHeader: '(any value)',
+    contentDescription: 'Any unrecognized column will be included in the output',
+    example: 'Broker Price Opinion'
+  }]
+);
 const propertyFlood = new Endpoint(2, 'property/flood', 'Flood risk');
-const propertyValueWithinBlock = new Endpoint(3, 'property/value_within_block', 'Position of a property\'s value within the distribution of values on the block');
+const propertyValueWithinBlock = new Endpoint(3, 'property/value_within_block', 'Position of a property\'s value within the distribution of values on the block',
+  [{
+    colHeader: 'value_within_block__client_value',
+    contentDescription: 'Total estimated dollar value',
+    example: '253075'
+  }, {
+    colHeader: 'value_within_block__client_value_sqft',
+    contentDescription: 'Estimated dollar value per square foot',
+    example: '275'
+  }]
+);
 
 const baseEndpoints = [
   propertyDetails,
@@ -88,7 +104,6 @@ function selectedTemplate (state = null, action) {
 function selectedEndpoints (state = [], action) {
   switch (action.type) {
     case UPDATE_ENDPOINTS:
-      console.log('Update endpoints');
       return action.endpointsSelected.sort();
     case TOGGLE_TEMPLATE:
       // if no previous selected template: new template selection
@@ -116,8 +131,8 @@ const matchAndAppendApp = combineReducers({
   availableEndpoints,
   availableTemplates,
   endpointListVisibility,
-  selectedTemplate,
-  selectedEndpoints
+  selectedEndpoints,
+  selectedTemplate
 });
 
 export default matchAndAppendApp;

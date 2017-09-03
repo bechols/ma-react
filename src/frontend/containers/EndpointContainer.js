@@ -13,8 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onEndpointClick: (endpointsSelected) => {
-      dispatch(updateEndpoints(endpointsSelected));
+    onEndpointClick: (endpointsSelected, availableEndpoints) => {
+      dispatch(updateEndpoints(endpointsSelected, availableEndpoints));
     }
   };
 };

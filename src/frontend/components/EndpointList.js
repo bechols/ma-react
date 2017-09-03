@@ -7,10 +7,14 @@ import { TableCell } from 'react-toolbox/lib/table';
 import PropTypes from 'prop-types';
 
 class EndpointList extends React.Component {
+  handleRowSelect = selected => {
+    return this.props.onEndpointClick(selected, this.props.availableEndpoints)
+  }
+
   render () {
     if (this.props.endpointListVisibility) {
       return (
-        <Table multiSelectable onRowSelect={this.props.onEndpointClick}>
+        <Table multiSelectable onRowSelect={this.handleRowSelect}>
           <TableHead>
             <TableCell>Endpoint</TableCell>
             <TableCell>Description</TableCell>

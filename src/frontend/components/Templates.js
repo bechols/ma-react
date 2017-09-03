@@ -4,7 +4,7 @@ import { Button } from 'react-toolbox/lib/button';
 import theme from './Templates.css';
 import PropTypes from 'prop-types';
 
-const Templates = ({ availableTemplates, selectedTemplate, selectedEndpoints, onTemplateClick, onToggleListVisibility, onClearAll }) => (
+const Templates = ({ availableEndpoints, availableTemplates, selectedTemplate, selectedEndpoints, onTemplateClick, onToggleListVisibility, onClearAll }) => (
   <div>
     <div className={theme.Templates}>
       {availableTemplates.map((template, idx) => (
@@ -17,6 +17,7 @@ const Templates = ({ availableTemplates, selectedTemplate, selectedEndpoints, on
           selected={availableTemplates[idx].id === selectedTemplate}
           selectedTemplate={selectedTemplate}
           onTemplateClick={onTemplateClick}
+          availableEndpoints={availableEndpoints}
         />
       ))}
     </div>
@@ -30,6 +31,7 @@ const Templates = ({ availableTemplates, selectedTemplate, selectedEndpoints, on
 );
 
 Templates.PropTypes = {
+  availableEndpoints: PropTypes.array.isRequired,
   availableTemplates: PropTypes.array.isRequired,
   selectedTemplate: PropTypes.number.isRequired,
   selectedEndpoints: PropTypes.array.isRequired,

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  getAvailableTemplates,
   toggleTemplate,
   toggleEndpointListVisibility,
   clearSelectedEndpoints
@@ -10,16 +9,17 @@ import Templates from '../components/Templates';
 
 const mapStateToProps = state => {
   return {
+    availableEndpoints: state.availableEndpoints,
     availableTemplates: state.availableTemplates,
-    selectedTemplate: state.selectedTemplate,
-    selectedEndpoints: state.selectedEndpoints
+    selectedEndpoints: state.selectedEndpoints,
+    selectedTemplate: state.selectedTemplate
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTemplateClick: (templateId, includedEndpoints, selectedTemplate) => {
-      dispatch(toggleTemplate(templateId, includedEndpoints, selectedTemplate));
+    onTemplateClick: (templateId, includedEndpoints, selectedTemplate, availableEndpoints, availableTemplates) => {
+      dispatch(toggleTemplate(templateId, includedEndpoints, selectedTemplate, availableEndpoints, availableTemplates));
     },
     onToggleListVisibility: () => {
       dispatch(toggleEndpointListVisibility());

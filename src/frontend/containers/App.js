@@ -2,7 +2,7 @@ import React from 'react';
 import HCAppBar from '../components/HCAppBar.js';      // AppBar with simple overrides
 import EndpointContainer from './EndpointContainer';
 import TemplateContainer from './TemplateContainer';
-import ColumnsDisplay from '../components/ColumnsDisplay';
+import ColumnsContainer from './ColumnsContainer';
 
 const App = (props) => (
   <div>
@@ -10,7 +10,7 @@ const App = (props) => (
     <section className='Body' style={{ maxWidth: 1000, margin: 'auto' }}>
       <TemplateContainer />
       <EndpointContainer />
-      <ColumnsDisplay />
+      <ColumnsContainer />
     </section>
   </div>
 );
