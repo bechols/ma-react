@@ -3,6 +3,8 @@ import HCAppBar from '../components/HCAppBar.js';      // AppBar with simple ove
 import EndpointContainer from './EndpointContainer';
 import TemplateContainer from './TemplateContainer';
 import ColumnsContainer from './ColumnsContainer';
+import FileContainer from './FileContainer';
+import ResultsContainer from './ResultsContainer';
 
 const App = (props) => (
   <div>
@@ -11,6 +13,8 @@ const App = (props) => (
       <TemplateContainer />
       <EndpointContainer />
       <ColumnsContainer />
+      <FileContainer />
+      <ResultsContainer />
     </section>
   </div>
 );

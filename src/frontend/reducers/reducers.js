@@ -2,10 +2,12 @@ import {combineReducers} from 'redux';
 import {
   GET_AVAILABLE_ENDPOINTS,
   GET_AVAILABLE_TEMPLATES,
+  GET_PREVIOUS_RESULTS,
   TOGGLE_TEMPLATE,
   UPDATE_ENDPOINTS,
   CLEAR_SELECTED_ENDPOINTS,
   TOGGLE_ENDPOINT_LIST_VISIBILITY,
+  TOGGLE_PREVIOUS_RESULTS,
   UPLOAD_FILE
 } from '../actions/actions';
 
@@ -17,13 +19,7 @@ function Endpoint (id, name = '', description = '', optionalColumns = []) {
 }
 
 const propertyDetails = new Endpoint(0, 'property/details', 'Assessment info');
-const propertyValue = new Endpoint(1, 'property/value', 'HouseCanary AVM',
-  [{
-    colHeader: '(any value)',
-    contentDescription: 'Any unrecognized column will be included in the output',
-    example: 'Broker Price Opinion'
-  }]
-);
+const propertyValue = new Endpoint(1, 'property/value', 'HouseCanary AVM');
 const propertyFlood = new Endpoint(2, 'property/flood', 'Flood risk');
 const propertyValueWithinBlock = new Endpoint(3, 'property/value_within_block', 'Position of a property\'s value within the distribution of values on the block',
   [{
@@ -59,6 +55,24 @@ const baseTemplates = [
   rentalAnalysis
 ];
 
+function Job (id, date, file, template, endpoints, status, link) {
+  this.id = id;
+  this.date = date;
+  this.file = file;
+  this.template = template;
+  this.endpoints = endpoints;
+  this.status = status;
+  this.link = link;
+}
+
+const previousResult1 = new Job('A7N4U8', 'Aug 22 2017', 'portfolio_tape.csv', '', [1, 2], 'Complete', 'https://www.housecanary.com');
+const previousResult2 = new Job('RD99AV', 'Aug 31 2017', 'hudson_county.csv', '', [0, 1, 2], 'Complete', 'https://www.housecanary.com');
+
+const baseResults = [
+  previousResult1,
+  previousResult2
+]
+
 function availableEndpoints (state = [], action) {
   switch (action.type) {
     case GET_AVAILABLE_ENDPOINTS:
@@ -77,7 +91,22 @@ function availableTemplates (state = [], action) {
   }
 }
 
-function endpointListVisibility (state = true, action) {
+function previousResults (state = [], action) {
+  switch (action.type) {
+    case GET_PREVIOUS_RESULTS:
+      return baseResults;
+    case TOGGLE_PREVIOUS_RESULTS:
+      if (state === []) {
+        return baseResults;
+      } else {
+        return [];
+      }
+    default:
+      return state;
+  }
+}
+
+function endpointListVisibility (state = false, action) {
   switch (action.type) {
     case TOGGLE_ENDPOINT_LIST_VISIBILITY:
       return !state;
@@ -127,12 +156,24 @@ function selectedEndpoints (state = [], action) {
   }
 }
 
+function uploadedFile (state = null, action) {
+  switch (action.type) {
+    case UPLOAD_FILE:
+      return action.file;
+    default:
+      return state;
+  }
+}
+
+
 const matchAndAppendApp = combineReducers({
   availableEndpoints,
   availableTemplates,
+  previousResults,
   endpointListVisibility,
   selectedEndpoints,
-  selectedTemplate
+  selectedTemplate,
+  uploadedFile
 });
 
 export default matchAndAppendApp;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'react-toolbox/lib/button';
 import { Table } from 'react-toolbox/lib/table';
 import { TableHead } from 'react-toolbox/lib/table';
 import { TableRow } from 'react-toolbox/lib/table';
