@@ -13,7 +13,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFileUpload: (file) => {
-      console.log(file);
       dispatch(uploadFile('Portfolio_upload.csv'));
     }
   };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-toolbox/lib/button';
-import theme from './FileUpload.css';
+import style from './FileUpload.css';
 
 class FileUpload extends React.Component {
 
@@ -10,7 +10,10 @@ class FileUpload extends React.Component {
       return (
         <div>
           <h2>Upload your CSV</h2>
-          <Button className={this.props.uploadedFile ? null : theme.mainCTA} onClick={this.props.onFileUpload} label={'Upload spreadsheet'} />
+          <div className={style.fileArea}>
+            <Button className={this.props.uploadedFile ? null : style.mainCTA} onClick={this.props.onFileUpload} label={'Upload spreadsheet'} />
+            {this.props.uploadedFile ? <h3 style={{marginLeft: 50}}>{this.props.uploadedFile}</h3> : null}
+          </div>
         </div>
       );
     } else {

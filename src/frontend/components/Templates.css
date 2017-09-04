@@ -1,7 +1,10 @@
+.TemplatesArea {
+  margin-top: 50px;
+}
+
 .Templates {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
 }
 
 .ButtonDiv {

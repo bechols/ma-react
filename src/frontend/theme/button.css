@@ -1,0 +1,7 @@
+.primary:not([disabled]).raised {
+  background: rgb(22, 172, 208)
+}
+
+.button:not([disabled]).flat {
+  color: rgb(22, 172, 208)
+}

@@ -1,3 +1,8 @@
+.fileArea {
+  display: flex;
+}
+
 .mainCTA {
-  background-color: #99e3ef;
+  background: rgb(22, 172, 208) !important;
+  color: white !important;
 }

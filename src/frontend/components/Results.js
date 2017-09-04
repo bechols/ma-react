@@ -3,14 +3,16 @@ import { Table } from 'react-toolbox/lib/table';
 import { TableHead } from 'react-toolbox/lib/table';
 import { TableRow } from 'react-toolbox/lib/table';
 import { TableCell } from 'react-toolbox/lib/table';
+import { Link } from 'react-toolbox/lib/link'
 import PropTypes from 'prop-types';
+import theme from './Results.css';
 
 class Results extends React.Component {
   render () {
-    if (this.props.previousResults) {
+    if (this.props.previousResults && !(this.props.selectedEndpoints.length || this.props.selectedTemplate)) {
       return (
         <div>
-          <h2>Earlier jobs</h2>
+          <h2>Recent results</h2>
           <Table selectable={false}>
             <TableHead>
               <TableCell>Date</TableCell>
@@ -21,7 +23,7 @@ class Results extends React.Component {
               <TableRow key={idx}>
                 <TableCell>{result.date}</TableCell>
                 <TableCell>{result.file}</TableCell>
-                <TableCell>{result.link}</TableCell>
+                <TableCell><Link theme={theme} href={result.link}>Download</Link></TableCell>
               </TableRow>
             ))}
           </Table>
@@ -34,9 +36,9 @@ class Results extends React.Component {
 }
 
 Results.PropTypes = {
-  availableEndpoints: PropTypes.array.isRequired,
   selectedEndpoints: PropTypes.array.isRequired,
-  uploadedFile: PropTypes.string
+  selectedTemplate: PropTypes.number,
+  previousResults: PropTypes.array
 };
 
 export default Results;

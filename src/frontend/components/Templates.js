@@ -5,7 +5,8 @@ import theme from './Templates.css';
 import PropTypes from 'prop-types';
 
 const Templates = ({ availableEndpoints, availableTemplates, selectedTemplate, selectedEndpoints, onTemplateClick, onToggleListVisibility, onClearAll }) => (
-  <div>
+  <div className={theme.TemplatesArea}>
+    <h2>New analysis</h2>
     <div className={theme.Templates}>
       {availableTemplates.map((template, idx) => (
         <TemplateCard

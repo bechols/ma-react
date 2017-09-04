@@ -5,7 +5,9 @@ import Results from '../components/Results';
 
 const mapStateToProps = state => {
   return {
-    previousResults: state.previousResults
+    previousResults: state.previousResults,
+    selectedTemplate: state.selectedTemplate,
+    selectedEndpoints: state.selectedEndpoints
   };
 };
 

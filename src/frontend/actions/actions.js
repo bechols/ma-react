@@ -6,10 +6,8 @@ export const UPDATE_ENDPOINTS = 'UPDATE_ENDPOINTS';
 export const CLEAR_SELECTED_ENDPOINTS = 'CLEAR_SELECTED_ENDPOINTS';
 export const TOGGLE_ENDPOINT_LIST_VISIBILITY = 'TOGGLE_ENDPOINT_LIST_VISIBILITY';
 export const UPLOAD_FILE = 'UPLOAD_FILE';
-export const SUBMIT_JOB = 'SUBMIT_JOB';
+export const JOB_ADDED = 'JOB_ADDED';
 export const TOGGLE_PREVIOUS_RESULTS = 'TOGGLE_PREVIOUS_RESULTS';
-//coming soon
-//export const GET_REQUIRED_INPUT_COLUMN = 'GET_REQUIRED_INPUT_COLUMN';
 
 export function getAvailableEndpoints () {
   return { type: GET_AVAILABLE_ENDPOINTS };
@@ -38,6 +36,6 @@ export function clearSelectedEndpoints () {
 export function uploadFile (file) {
   return { type: UPLOAD_FILE, file };
 }
-export function submitJob () {
-  return { type: SUBMIT_JOB };
+export function jobAdded (endpoints, file, template) {
+  return { type: JOB_ADDED, endpoints, file, template };
 }

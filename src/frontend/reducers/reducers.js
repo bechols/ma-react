@@ -8,7 +8,8 @@ import {
   CLEAR_SELECTED_ENDPOINTS,
   TOGGLE_ENDPOINT_LIST_VISIBILITY,
   TOGGLE_PREVIOUS_RESULTS,
-  UPLOAD_FILE
+  UPLOAD_FILE,
+  JOB_ADDED
 } from '../actions/actions';
 
 function Endpoint (id, name = '', description = '', optionalColumns = []) {
@@ -90,7 +91,7 @@ function availableTemplates (state = [], action) {
       return state;
   }
 }
-
+// not wired up yet, intended for demo/testing
 function previousResults (state = [], action) {
   switch (action.type) {
     case GET_PREVIOUS_RESULTS:
@@ -101,6 +102,17 @@ function previousResults (state = [], action) {
       } else {
         return [];
       }
+    case JOB_ADDED:
+      console.log('Action in submit job reducer', action);
+      return state.concat({
+        endpoints: action.endpoints,
+        file: action.file,
+        template: action.template,
+        id: 'ID',
+        date: 'Sep 3 2017',
+        status: 'Complete',
+        link: 'https://www.google.com'
+      });
     default:
       return state;
   }
