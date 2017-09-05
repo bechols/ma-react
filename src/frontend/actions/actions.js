@@ -8,6 +8,8 @@ export const TOGGLE_ENDPOINT_LIST_VISIBILITY = 'TOGGLE_ENDPOINT_LIST_VISIBILITY'
 export const UPLOAD_FILE = 'UPLOAD_FILE';
 export const JOB_ADDED = 'JOB_ADDED';
 export const TOGGLE_PREVIOUS_RESULTS = 'TOGGLE_PREVIOUS_RESULTS';
+export const SHOW_RESULTS_DRAWER = 'SHOW_RESULT_DRAWER';
+export const TOGGLE_RESULTS_DRAWER_VISIBILITY = 'TOGGLE_RESULT_DRAWER_VISIBILITY';
 
 export function getAvailableEndpoints () {
   return { type: GET_AVAILABLE_ENDPOINTS };
@@ -38,4 +40,10 @@ export function uploadFile (file) {
 }
 export function jobAdded (endpoints, file, template) {
   return { type: JOB_ADDED, endpoints, file, template };
+}
+export function toggleResultsDrawerVisibility () {
+  return { type: TOGGLE_RESULTS_DRAWER_VISIBILITY };
+}
+export function showResultsDrawer () {
+  return { type: SHOW_RESULTS_DRAWER };
 }

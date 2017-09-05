@@ -6,3 +6,9 @@
   background: rgb(22, 172, 208) !important;
   color: white !important;
 }
+
+.fileInfo {
+  margin-left: 50px;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  vertical-align: top;
+}

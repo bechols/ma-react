@@ -1,13 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleResultsDrawerVisibility } from '../actions/actions';
-import Results from '../components/Results';
+import HCAppBar from '../components/HCAppBar';
 
 const mapStateToProps = state => {
-  return {
-    resultsDrawerVisible: state.resultsDrawerVisible,
-    previousResults: state.previousResults
-  };
+  return {};
 };
 
 const mapDispatchToProps = dispatch => {
@@ -18,9 +15,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const ResultsContainer = connect(
+const HCAppBarContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-  )(Results);
+  )(HCAppBar);
 
-export default ResultsContainer;
+export default HCAppBarContainer;

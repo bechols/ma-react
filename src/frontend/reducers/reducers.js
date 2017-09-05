@@ -9,7 +9,9 @@ import {
   TOGGLE_ENDPOINT_LIST_VISIBILITY,
   TOGGLE_PREVIOUS_RESULTS,
   UPLOAD_FILE,
-  JOB_ADDED
+  JOB_ADDED,
+  TOGGLE_RESULTS_DRAWER_VISIBILITY,
+  SHOW_RESULTS_DRAWER
 } from '../actions/actions';
 
 function Endpoint (id, name = '', description = '', optionalColumns = []) {
@@ -103,13 +105,12 @@ function previousResults (state = [], action) {
         return [];
       }
     case JOB_ADDED:
-      console.log('Action in submit job reducer', action);
       return state.concat({
         endpoints: action.endpoints,
         file: action.file,
         template: action.template,
         id: 'ID',
-        date: 'Sep 3 2017',
+        date: 'Sep 4 2017',
         status: 'Complete',
         link: 'https://www.google.com'
       });
@@ -177,6 +178,19 @@ function uploadedFile (state = null, action) {
   }
 }
 
+function resultsDrawerVisible (state = false, action) {
+  switch (action.type) {
+    case TOGGLE_RESULTS_DRAWER_VISIBILITY:
+      return !state;
+    case SHOW_RESULTS_DRAWER:
+      return true;
+    case JOB_ADDED:
+      return true;
+    default:
+      return state;
+  }
+}
+
 
 const matchAndAppendApp = combineReducers({
   availableEndpoints,
@@ -185,7 +199,8 @@ const matchAndAppendApp = combineReducers({
   endpointListVisibility,
   selectedEndpoints,
   selectedTemplate,
-  uploadedFile
+  uploadedFile,
+  resultsDrawerVisible
 });
 
 export default matchAndAppendApp;

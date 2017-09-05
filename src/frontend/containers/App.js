@@ -1,5 +1,6 @@
 import React from 'react';
-import HCAppBar from '../components/HCAppBar.js';      // AppBar with simple overrides
+import { Layout, Panel } from 'react-toolbox';
+import HCAppBarContainer from './HCAppBarContainer';
 import EndpointContainer from './EndpointContainer';
 import TemplateContainer from './TemplateContainer';
 import ColumnsContainer from './ColumnsContainer';
@@ -8,17 +9,19 @@ import ResultsContainer from './ResultsContainer';
 import SubmitContainer from './SubmitContainer';
 
 const App = (props) => (
-  <div>
-    <HCAppBar />
-    <section className='Body' style={{ maxWidth: 1000, margin: 'auto' }}>
-      <ResultsContainer />
-      <TemplateContainer />
-      <EndpointContainer />
-      <ColumnsContainer />
-      <FileContainer />
-      <SubmitContainer />
-    </section>
-  </div>
+  <Layout>
+    <ResultsContainer />
+    <Panel>
+      <HCAppBarContainer />
+      <div className='Body' style={{ maxWidth: 1000, margin: 'auto', alignSelf: 'stretch' }}>
+        <TemplateContainer />
+        <EndpointContainer />
+        <ColumnsContainer />
+        <FileContainer />
+        <SubmitContainer />
+      </div>
+    </Panel>
+  </Layout>
 );
 
 export default App;

@@ -12,7 +12,7 @@ class FileUpload extends React.Component {
           <h2>Upload your CSV</h2>
           <div className={style.fileArea}>
             <Button className={this.props.uploadedFile ? null : style.mainCTA} onClick={this.props.onFileUpload} label={'Upload spreadsheet'} />
-            {this.props.uploadedFile ? <h3 style={{marginLeft: 50}}>{this.props.uploadedFile}</h3> : null}
+            {this.props.uploadedFile ? <h4 className={style.fileInfo}>{this.props.uploadedFile}</h4> : null}
           </div>
         </div>
       );
