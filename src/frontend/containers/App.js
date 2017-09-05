@@ -7,6 +7,7 @@ import ColumnsContainer from './ColumnsContainer';
 import FileContainer from './FileContainer';
 import ResultsContainer from './ResultsContainer';
 import SubmitContainer from './SubmitContainer';
+import SeePreviousResultsContainer from './SeePreviousResultsContainer';
 
 const App = (props) => (
   <Layout>
@@ -19,6 +20,7 @@ const App = (props) => (
         <ColumnsContainer />
         <FileContainer />
         <SubmitContainer />
+        <SeePreviousResultsContainer />
       </div>
     </Panel>
   </Layout>

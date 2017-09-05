@@ -27,7 +27,7 @@ class Submit extends React.Component {
             action='Dismiss'
             active={this.state.newJobAlert}
             label='Running your analysis now.'
-            timeout={3000}
+            timeout={2000}
             onClick={this.handleSnackbarEvent}
             onTimeout={this.handleSnackbarEvent}
             type='accept'

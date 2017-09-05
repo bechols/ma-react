@@ -19,7 +19,7 @@ class Results extends React.Component {
         theme={theme}
       >
         <div className={theme.drawerHeader}>
-          <h2>Recent results</h2>
+          <h2>Results</h2>
           <Button icon='close' onClick={this.props.toggleResultsDrawerVisibility}/>
         </div>
           <Table selectable={false}>
