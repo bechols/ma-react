@@ -16,11 +16,11 @@ const App = (props) => (
       <HCAppBarContainer />
       <div className='Body' style={{ maxWidth: 1000, margin: 'auto', alignSelf: 'stretch' }}>
         <TemplateContainer />
-        <EndpointContainer />
         <ColumnsContainer />
         <FileContainer />
         <SubmitContainer />
         <SeePreviousResultsContainer />
+        <EndpointContainer />
       </div>
     </Panel>
   </Layout>
