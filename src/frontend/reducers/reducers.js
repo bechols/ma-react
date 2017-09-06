@@ -13,68 +13,10 @@ import {
   TOGGLE_RESULTS_DRAWER_VISIBILITY,
   SHOW_RESULTS_DRAWER
 } from '../actions/actions';
-
-function Endpoint (id, name = '', description = '', optionalColumns = []) {
-  this.id = id;
-  this.name = name;
-  this.description = description;
-  this.optionalColumns = optionalColumns;
-}
-
-const propertyDetails = new Endpoint(0, 'property/details', 'Assessment info');
-const propertyValue = new Endpoint(1, 'property/value', 'HouseCanary AVM');
-const propertyFlood = new Endpoint(2, 'property/flood', 'Flood risk');
-const propertyValueWithinBlock = new Endpoint(3, 'property/value_within_block', 'Position of a property\'s value within the distribution of values on the block',
-  [{
-    colHeader: 'value_within_block__client_value',
-    contentDescription: 'Total estimated dollar value',
-    example: '253075'
-  }, {
-    colHeader: 'value_within_block__client_value_sqft',
-    contentDescription: 'Estimated dollar value per square foot',
-    example: '275'
-  }]
-);
-
-const baseEndpoints = [
-  propertyDetails,
-  propertyValue,
-  propertyFlood,
-  propertyValueWithinBlock
-];
-
-function Template (id, name, description, endpoints) {
-  this.id = id;
-  this.name = name;
-  this.description = description;
-  this.endpoints = endpoints;
-}
-
-const loanCollateralAnalysis = new Template(0, 'Loan Collateral Analysis', 'Current and forecasted value, market data, and property attributes', [0, 1]);
-const rentalAnalysis = new Template(1, 'Rental Analysis', 'Estimated rental yield and forecast', [1, 3]);
-
-const baseTemplates = [
-  loanCollateralAnalysis,
-  rentalAnalysis
-];
-
-function Job (id, date, file, template, endpoints, status, link) {
-  this.id = id;
-  this.date = date;
-  this.file = file;
-  this.template = template;
-  this.endpoints = endpoints;
-  this.status = status;
-  this.link = link;
-}
-
-const previousResult1 = new Job('A7N4U8', 'Aug 22 2017', 'portfolio_tape.csv', '', [1, 2], 'Complete', 'https://www.housecanary.com');
-const previousResult2 = new Job('RD99AV', 'Aug 31 2017', 'hudson_county.csv', '', [0, 1, 2], 'Complete', 'https://www.housecanary.com');
-
-const baseResults = [
-  previousResult1,
-  previousResult2
-]
+// dummy data for demo
+import baseEndpoints from './baseEndpoints';
+import baseTemplates from './baseTemplates';
+import baseResults from './baseResults';
 
 function availableEndpoints (state = [], action) {
   switch (action.type) {
@@ -93,7 +35,7 @@ function availableTemplates (state = [], action) {
       return state;
   }
 }
-// not wired up yet, intended for demo/testing
+
 function previousResults (state = [], action) {
   switch (action.type) {
     case GET_PREVIOUS_RESULTS:

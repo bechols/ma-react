@@ -22,7 +22,7 @@ class EndpointList extends React.Component {
           type={'right'}
         >
           <div className={theme.drawerHeader}>
-            <h2>Data Points</h2>
+            <h2>Data & Analytics</h2>
             <Button icon='close' onClick={this.props.toggleEndpointListVisibility}/>
           </div>
           <Table multiSelectable onRowSelect={this.handleRowSelect}>
