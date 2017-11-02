@@ -7,12 +7,14 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'react-css-themr';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import submitJob from './sagas/sagas';
+import rootSaga from './sagas/sagas';
 import matchAndAppendApp from './reducers/reducers';
 import {
   getAvailableEndpoints,
   getAvailableTemplates,
-  getPreviousResults
+  getPreviousResults,
+  getCurrentOrganization
+
 } from './actions/actions';
 import theme from './theme';
 
@@ -20,13 +22,14 @@ const rootEl = document.getElementById('app');
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(matchAndAppendApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(sagaMiddleware));
-sagaMiddleware.run(submitJob);
+sagaMiddleware.run(rootSaga);
 
 
 // Initialize app state
 store.dispatch(getAvailableEndpoints());
 store.dispatch(getAvailableTemplates());
 store.dispatch(getPreviousResults());
+store.dispatch(getCurrentOrganization());
 
 const render = () => {
   ReactDOM.render(

@@ -1,5 +1,7 @@
 export const GET_AVAILABLE_ENDPOINTS = 'GET_AVAILABLE_ENDPOINTS';
 export const GET_AVAILABLE_TEMPLATES = 'GET_AVAILABLE_TEMPLATES';
+export const GET_CURRENT_ORGANIZATION = 'GET_CURRENT_ORGANIZATION';
+export const SET_CURRENT_ORGANIZATION = 'SET_CURRENT_ORGANIZATION';
 export const GET_PREVIOUS_RESULTS = 'GET_PREVIOUS_RESULTS';
 export const TOGGLE_TEMPLATE = 'TOGGLE_TEMPLATE';
 export const UPDATE_ENDPOINTS = 'UPDATE_ENDPOINTS';
@@ -16,6 +18,12 @@ export function getAvailableEndpoints () {
 }
 export function getAvailableTemplates () {
   return { type: GET_AVAILABLE_TEMPLATES };
+}
+export function getCurrentOrganization () {
+  return { type: GET_CURRENT_ORGANIZATION };
+}
+export function setCurrentOrganization (isEnterprise, isTrial, organizationName) {
+  return { type: SET_CURRENT_ORGANIZATION, isEnterprise, isTrial, organizationName };
 }
 export function getPreviousResults () {
   return { type: GET_PREVIOUS_RESULTS };

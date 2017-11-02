@@ -2,6 +2,8 @@ import {combineReducers} from 'redux';
 import {
   GET_AVAILABLE_ENDPOINTS,
   GET_AVAILABLE_TEMPLATES,
+  GET_CURRENT_ORGANIZATION,
+  SET_CURRENT_ORGANIZATION,
   GET_PREVIOUS_RESULTS,
   TOGGLE_TEMPLATE,
   UPDATE_ENDPOINTS,
@@ -31,6 +33,19 @@ function availableTemplates (state = [], action) {
   switch (action.type) {
     case GET_AVAILABLE_TEMPLATES:
       return baseTemplates;
+    default:
+      return state;
+  }
+}
+
+function subscriptionInfo (state = [], action) {
+  switch (action.type) {
+    case SET_CURRENT_ORGANIZATION:
+      return state.concat({
+        isEnterprise: action.isEnterprise,
+        isTrial: action.isTrial,
+        organizationName: action.organizationName
+      });
     default:
       return state;
   }
@@ -137,6 +152,7 @@ function resultsDrawerVisible (state = false, action) {
 const matchAndAppendApp = combineReducers({
   availableEndpoints,
   availableTemplates,
+  subscriptionInfo,
   previousResults,
   endpointListVisibility,
   selectedEndpoints,
