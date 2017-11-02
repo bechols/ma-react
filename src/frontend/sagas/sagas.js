@@ -13,7 +13,7 @@ function* processJobSubmit (action) {
       template: action.template
     });
   } catch (e) {
-     //yield put({type: 'USER_FETCH_FAILED', message: e.message});
+     //yield put({type: 'FAILED_TO_ADD_JOB', message: e.message});
   }
 }
 
